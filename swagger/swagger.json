@@ -1,0 +1,934 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/login/": {},
+        "/menu/": {
+            "get": {
+                "tags": [
+                    "menu"
+                ],
+                "description": "get Menu",
+                "operationId": "MenuController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Menu"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "menu"
+                ],
+                "description": "create Menu",
+                "operationId": "MenuController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Menu content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Menu"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Menu"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/menu/{id}": {
+            "get": {
+                "tags": [
+                    "menu"
+                ],
+                "description": "get Menu by id",
+                "operationId": "MenuController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Menu"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "menu"
+                ],
+                "description": "update the Menu",
+                "operationId": "MenuController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Menu content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Menu"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Menu"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "menu"
+                ],
+                "description": "delete the Menu",
+                "operationId": "MenuController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/registertravelagent/": {},
+        "/role/": {
+            "get": {
+                "tags": [
+                    "role"
+                ],
+                "description": "get Role",
+                "operationId": "RoleController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Role"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "role"
+                ],
+                "description": "create Role",
+                "operationId": "RoleController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Role content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Role"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Role"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/role/{id}": {
+            "get": {
+                "tags": [
+                    "role"
+                ],
+                "description": "get Role by id",
+                "operationId": "RoleController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Role"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "role"
+                ],
+                "description": "update the Role",
+                "operationId": "RoleController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Role content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Role"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Role"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "role"
+                ],
+                "description": "delete the Role",
+                "operationId": "RoleController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/travelagent/": {
+            "get": {
+                "tags": [
+                    "travelagent"
+                ],
+                "description": "get Travelagent",
+                "operationId": "TravelagentController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Travelagent"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "travelagent"
+                ],
+                "description": "create Travelagent",
+                "operationId": "TravelagentController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Travelagent content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Travelagent"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Travelagent"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/travelagent/{id}": {
+            "get": {
+                "tags": [
+                    "travelagent"
+                ],
+                "description": "get Travelagent by id",
+                "operationId": "TravelagentController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Travelagent"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "travelagent"
+                ],
+                "description": "update the Travelagent",
+                "operationId": "TravelagentController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Travelagent content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Travelagent"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Travelagent"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "travelagent"
+                ],
+                "description": "delete the Travelagent",
+                "operationId": "TravelagentController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.CategoryFacility": {
+            "title": "CategoryFacility",
+            "type": "object",
+            "properties": {
+                "CategoryFacilityName": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Fasilitas": {
+            "title": "Fasilitas",
+            "type": "object",
+            "properties": {
+                "CategoryFacilityCode": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Description": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FacilityName": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdPacket": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IsAvailable": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IsPublish": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "models.Jamaah": {
+            "title": "Jamaah",
+            "type": "object",
+            "properties": {
+                "Address": {
+                    "type": "string"
+                },
+                "Birthdate": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "City": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Firstname": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Lastname": {
+                    "type": "string"
+                },
+                "Mobile": {
+                    "type": "string"
+                },
+                "Passportno": {
+                    "type": "string"
+                },
+                "Phone": {
+                    "type": "string"
+                },
+                "Province": {
+                    "type": "string"
+                },
+                "ScheduleId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Sex": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Login": {
+            "title": "Login",
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ManasikSchedule": {
+            "title": "ManasikSchedule",
+            "type": "object",
+            "properties": {
+                "Createdby": {
+                    "type": "string"
+                },
+                "Createddate": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IsPublish": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Location": {
+                    "type": "string"
+                },
+                "Materi": {
+                    "type": "string"
+                },
+                "Modifyby": {
+                    "type": "string"
+                },
+                "Modifydate": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "ScheduleId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Status": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Menu": {
+            "title": "Menu",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Menu": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.PaketTravel": {
+            "title": "PaketTravel",
+            "type": "object",
+            "properties": {
+                "Category": {
+                    "type": "string"
+                },
+                "Createdby": {
+                    "type": "string"
+                },
+                "Createddate": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Destination": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id_RENAME": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IsPromo": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "IsPublish": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Longtrip": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Modifyby": {
+                    "type": "string"
+                },
+                "Modifydate": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Origin": {
+                    "type": "string"
+                },
+                "PacketName": {
+                    "type": "string"
+                },
+                "Promocode": {
+                    "type": "string"
+                },
+                "Quota": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Role": {
+            "title": "Role",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RoleName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Schedule": {
+            "title": "Schedule",
+            "type": "object",
+            "properties": {
+                "Createdby": {
+                    "type": "string"
+                },
+                "Createddate": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Modifyby": {
+                    "type": "string"
+                },
+                "Modifydate": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "ScheduleDepartureDate": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "SchedulePath": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.SubPaketTravel": {
+            "title": "SubPaketTravel",
+            "type": "object",
+            "properties": {
+                "Harga": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "MataUang": {
+                    "type": "string"
+                },
+                "PaketId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "SubPacket": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Travelagent": {
+            "title": "Travelagent",
+            "type": "object",
+            "properties": {
+                "AlamatKantor": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Fax": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "JoinDate": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "KemenagHajiPath": {
+                    "type": "string"
+                },
+                "KemenangUmrohPath": {
+                    "type": "string"
+                },
+                "KotaKantor": {
+                    "type": "string"
+                },
+                "Mobile": {
+                    "type": "string"
+                },
+                "NamaTravel": {
+                    "type": "string"
+                },
+                "NoKemenagUmroh": {
+                    "type": "string"
+                },
+                "NoKemenangHaji": {
+                    "type": "string"
+                },
+                "Password": {
+                    "type": "string"
+                },
+                "Phone": {
+                    "type": "string"
+                },
+                "Provinsi": {
+                    "type": "string"
+                },
+                "RegistrationNumber": {
+                    "type": "string"
+                },
+                "RoleId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Status": {
+                    "type": "string"
+                },
+                "Website": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "menu",
+            "description": "MenuController operations for Menu\n"
+        },
+        {
+            "name": "role",
+            "description": "RoleController operations for Role\n"
+        },
+        {
+            "name": "travelagent",
+            "description": "TravelagentController operations for Travelagent\n"
+        },
+        {
+            "name": "registertravelagent",
+            "description": "RegistrationController operations for Registration\n"
+        },
+        {
+            "name": "login",
+            "description": "LoginController operations for Login\n"
+        }
+    ]
+}
