@@ -3,7 +3,7 @@ package controllers
 import (
 
 "github.com/Arwanial/MyJannah-API/models"
-"github.com/Arwanial/MyJannah-API/util"
+"github.com/Arwanial/MyJannah-API/utils"
 "github.com/Arwanial/MyJannah-API/request"
 "github.com/Arwanial/MyJannah-API/response"
 "crypto/sha1"
