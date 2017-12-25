@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:CategoryFacilityController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:CategoryFacilityController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:CategoryFacilityController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:CategoryFacilityController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -15,7 +15,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:CategoryFacilityController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:CategoryFacilityController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:CategoryFacilityController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:CategoryFacilityController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -23,7 +23,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:CategoryFacilityController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:CategoryFacilityController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:CategoryFacilityController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:CategoryFacilityController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
@@ -31,7 +31,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:CategoryFacilityController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:CategoryFacilityController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:CategoryFacilityController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:CategoryFacilityController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
@@ -39,7 +39,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:CategoryFacilityController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:CategoryFacilityController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:CategoryFacilityController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:CategoryFacilityController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,
@@ -47,7 +47,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:FasilitasController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:FasilitasController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:FasilitasController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:FasilitasController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -55,7 +55,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:FasilitasController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:FasilitasController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:FasilitasController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:FasilitasController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -63,7 +63,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:FasilitasController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:FasilitasController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:FasilitasController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:FasilitasController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
@@ -71,7 +71,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:FasilitasController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:FasilitasController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:FasilitasController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:FasilitasController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
@@ -79,7 +79,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:FasilitasController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:FasilitasController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:FasilitasController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:FasilitasController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,
@@ -87,7 +87,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:JamaahController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:JamaahController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:JamaahController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:JamaahController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -95,7 +95,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:JamaahController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:JamaahController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:JamaahController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:JamaahController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -103,7 +103,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:JamaahController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:JamaahController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:JamaahController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:JamaahController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
@@ -111,7 +111,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:JamaahController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:JamaahController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:JamaahController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:JamaahController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
@@ -119,7 +119,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:JamaahController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:JamaahController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:JamaahController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:JamaahController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,
@@ -127,15 +127,15 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:LoginController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:LoginController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:LoginController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:LoginController"],
 		beego.ControllerComments{
 			Method: "Login",
 			Router: `/`,
-			AllowHTTPMethods: []string{"post"},
+			AllowHTTPMethods: []string{"get"},
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:ManasikScheduleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:ManasikScheduleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ManasikScheduleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ManasikScheduleController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -143,7 +143,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:ManasikScheduleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:ManasikScheduleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ManasikScheduleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ManasikScheduleController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -151,7 +151,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:ManasikScheduleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:ManasikScheduleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ManasikScheduleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ManasikScheduleController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
@@ -159,7 +159,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:ManasikScheduleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:ManasikScheduleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ManasikScheduleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ManasikScheduleController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
@@ -167,7 +167,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:ManasikScheduleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:ManasikScheduleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ManasikScheduleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ManasikScheduleController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,
@@ -175,7 +175,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:MenuController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:MenuController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:MenuController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:MenuController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -183,7 +183,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:MenuController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:MenuController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:MenuController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:MenuController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -191,7 +191,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:MenuController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:MenuController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:MenuController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:MenuController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
@@ -199,7 +199,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:MenuController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:MenuController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:MenuController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:MenuController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
@@ -207,7 +207,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:MenuController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:MenuController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:MenuController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:MenuController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,
@@ -215,7 +215,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:PaketTravelController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:PaketTravelController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:PaketTravelController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:PaketTravelController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -223,7 +223,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:PaketTravelController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:PaketTravelController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:PaketTravelController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:PaketTravelController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -231,7 +231,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:PaketTravelController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:PaketTravelController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:PaketTravelController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:PaketTravelController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
@@ -239,7 +239,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:PaketTravelController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:PaketTravelController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:PaketTravelController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:PaketTravelController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
@@ -247,7 +247,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:PaketTravelController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:PaketTravelController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:PaketTravelController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:PaketTravelController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,
@@ -255,7 +255,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:RegistrationController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:RegistrationController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RegistrationController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RegistrationController"],
 		beego.ControllerComments{
 			Method: "RegisterTravel",
 			Router: `/`,
@@ -263,7 +263,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:RoleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:RoleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RoleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RoleController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -271,7 +271,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:RoleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:RoleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RoleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RoleController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -279,7 +279,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:RoleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:RoleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RoleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RoleController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
@@ -287,7 +287,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:RoleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:RoleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RoleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RoleController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
@@ -295,7 +295,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:RoleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:RoleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RoleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:RoleController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,
@@ -303,7 +303,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:ScheduleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:ScheduleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ScheduleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ScheduleController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -311,7 +311,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:ScheduleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:ScheduleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ScheduleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ScheduleController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -319,7 +319,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:ScheduleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:ScheduleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ScheduleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ScheduleController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
@@ -327,7 +327,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:ScheduleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:ScheduleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ScheduleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ScheduleController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
@@ -335,7 +335,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:ScheduleController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:ScheduleController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ScheduleController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:ScheduleController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,
@@ -343,7 +343,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:SubPaketTravelController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:SubPaketTravelController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:SubPaketTravelController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:SubPaketTravelController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -351,7 +351,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:SubPaketTravelController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:SubPaketTravelController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:SubPaketTravelController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:SubPaketTravelController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -359,7 +359,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:SubPaketTravelController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:SubPaketTravelController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:SubPaketTravelController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:SubPaketTravelController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
@@ -367,7 +367,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:SubPaketTravelController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:SubPaketTravelController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:SubPaketTravelController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:SubPaketTravelController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
@@ -375,7 +375,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:SubPaketTravelController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:SubPaketTravelController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:SubPaketTravelController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:SubPaketTravelController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,
@@ -383,7 +383,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:TravelagentController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:TravelagentController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:TravelagentController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:TravelagentController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -391,7 +391,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:TravelagentController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:TravelagentController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:TravelagentController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:TravelagentController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -399,7 +399,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:TravelagentController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:TravelagentController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:TravelagentController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:TravelagentController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
@@ -407,7 +407,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:TravelagentController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:TravelagentController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:TravelagentController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:TravelagentController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
@@ -415,7 +415,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["MyJannah-API/controllers:TravelagentController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:TravelagentController"],
+	beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:TravelagentController"] = append(beego.GlobalControllerRouter["github.com/Arwanial/MyJannah-API/controllers:TravelagentController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,

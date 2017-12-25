@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"MyJannah-API/controllers"
+	"github.com/Arwanial/MyJannah-API/controllers"
 
 	"github.com/astaxie/beego"
 )

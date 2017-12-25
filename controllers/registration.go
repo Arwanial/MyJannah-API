@@ -2,10 +2,10 @@ package controllers
 
 import (
 
-"MyJannah-API/models"
-"MyJannah-API/request"
-"MyJannah-API/response"
-"MyJannah-API/utils"
+"github.com/Arwanial/MyJannah-API/models"
+"github.com/Arwanial/MyJannah-API/util"
+"github.com/Arwanial/MyJannah-API/request"
+"github.com/Arwanial/MyJannah-API/response"
 "crypto/sha1"
 "encoding/hex"
 "github.com/astaxie/beego"

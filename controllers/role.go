@@ -3,7 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"MyJannah-API/models"
+	"github.com/Arwanial/MyJannah-API/models"
 	"strconv"
 	"strings"
 

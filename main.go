@@ -1,7 +1,7 @@
 package main
 
 import (
-	_"MyJannah-API/routers"
+	_"github.com/Arwanial/MyJannah-API/routers"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_"github.com/go-sql-driver/mysql"
