@@ -2,7 +2,7 @@ package controllers
 
 import (
 
-"MyJannah-API/models"
+"github.com/Arwanial/MyJannah-API/models"
 "crypto/sha1"
 "encoding/hex"
 "github.com/astaxie/beego"
