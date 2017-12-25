@@ -79,7 +79,7 @@ func(l *LoginController) Login(){
                   if token == "" || err != nil {
                     l.Data["json"] = ErrResponse{-0, err.Error()}
                   } else {
-                    l.Data["json"] = Response{0, "success.", response.LoginResponse{token}}
+                    l.Data["json"] = Response{200, "success.", response.LoginResponse{token}}
                   }
                   l.ServeJSON()
                 }
@@ -87,4 +87,3 @@ func(l *LoginController) Login(){
         }
       }
   }
-
