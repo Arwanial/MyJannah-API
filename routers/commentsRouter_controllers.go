@@ -131,7 +131,7 @@ func init() {
 		beego.ControllerComments{
 			Method: "Login",
 			Router: `/`,
-			AllowHTTPMethods: []string{"get"},
+			AllowHTTPMethods: []string{"post"},
 			MethodParams: param.Make(),
 			Params: nil})
 
@@ -259,7 +259,7 @@ func init() {
 		beego.ControllerComments{
 			Method: "RegisterTravel",
 			Router: `/`,
-			AllowHTTPMethods: []string{"get"},
+			AllowHTTPMethods: []string{"post"},
 			MethodParams: param.Make(),
 			Params: nil})
 
@@ -422,13 +422,5 @@ func init() {
 			AllowHTTPMethods: []string{"delete"},
 			MethodParams: param.Make(),
 			Params: nil})
-
-		beego.GlobalControllerRouter["MyJannah-API/controllers:RegistrationController"] = append(beego.GlobalControllerRouter["MyJannah-API/controllers:RegistrationController"],
-			beego.ControllerComments{
-				Method: "RegisterTravel",
-				Router: `/`,
-				AllowHTTPMethods: []string{"post"},
-				MethodParams: param.Make(),
-				Params: nil})
 
 }

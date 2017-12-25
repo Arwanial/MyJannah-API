@@ -3,7 +3,7 @@ package controllers
 import (
 
 "github.com/Arwanial/MyJannah-API/models"
-"github.com/Arwanial/MyJannah-API/utils"
+"github.com/Arwanial/MyJannah-API/util"
 "github.com/Arwanial/MyJannah-API/request"
 "github.com/Arwanial/MyJannah-API/response"
 "crypto/sha1"
@@ -11,7 +11,9 @@ import (
 "github.com/astaxie/beego"
 "github.com/astaxie/beego/validation"
   "github.com/twinj/uuid"
-	"github.com/astaxie/beego/utils"
+"encoding/json"
+"time"
+"github.com/astaxie/beego/utils"
 )
 
 
@@ -42,14 +44,14 @@ func (c *RegistrationController) URLMapping() {
 // @router / reg [post]
 func(r *RegistrationController) RegisterTravel(){
 
-  var registrationReq request.RegistrationRequest
+  var registrationReq request.RegisterRequest
 
   beego.Debug("test ")
 
-  if err := json.Unmarshal(l.Ctx.Input.RequestBody, &registrationReq); err != nil {
-     l.Ctx.ResponseWriter.WriteHeader(410)
-      l.Data["json"] = ErrResponse{410000, "Invalid Request"}
-      l.ServeJSON()
+  if err := json.Unmarshal(r.Ctx.Input.RequestBody, &registrationReq); err != nil {
+     r.Ctx.ResponseWriter.WriteHeader(410)
+      r.Data["json"] = ErrResponse{410000, "Invalid Request"}
+      r.ServeJSON()
       return
   }
 
@@ -57,7 +59,7 @@ func(r *RegistrationController) RegisterTravel(){
 
   valid.Email(registrationReq.Email, "email").Message("insert valid email, please")
   valid.Required(registrationReq.Email, "email").Message("email must be insert")
-	valid.Required(registrationReq.Password, "password").Message("password must be insert")
+	valid.Required(registrationReq.Passwords, "password").Message("password must be insert")
 	valid.Required(registrationReq.TravelName, "travelName").Message("Travel Name must be insert")
   valid.MinSize(registrationReq.TravelName, 2, "travelName").Message("Minimum Travel Name is 2 character")
 	valid.Tel(registrationReq.Phone, "phone").Message("Insert valid phone, please")
@@ -66,12 +68,12 @@ func(r *RegistrationController) RegisterTravel(){
   valid.Required(registrationReq.Mobile, "mobile").Message("mobile must be insert")
   valid.Tel(registrationReq.Fax, "fax").Message("Insert valid fax, please")
   valid.MinSize(registrationReq.OfficeAddress, 10, "officeAddress").Message("Minimum Character of Address is 10")
-  valid.Required(registrationReq.officeAddress, "officeAddress").Message("Office Adddress must be insert")
+  valid.Required(registrationReq.OfficeAddress, "officeAddress").Message("Office Adddress must be insert")
   valid.Required(registrationReq.OfficeCity, "city").Message("City must be insert")
   valid.Required(registrationReq.OfficeProvince, "province").Message("Province must be insert")
   valid.Required(registrationReq.KemenagHajiNo, "kemenagHajiNo").Message("Kemenang Haji must be insert")
   valid.Required(registrationReq.KemenagUmrohNo, "kemenangUmrohNo").Message("Kemenang Umroh must be insert")
-  valid.Length(registrationReq.Password, 8, "password").Message("Password Mus be 8 character")
+  valid.Length(registrationReq.Passwords, 8, "password").Message("Password Must be 8 character")
   valid.Required(registrationReq.PasswordConfirmation, "confirmationPassword").Message("Confirmation Password cant be empty")
   //
   if valid.HasErrors() {
@@ -82,7 +84,7 @@ func(r *RegistrationController) RegisterTravel(){
   			return
   		}
   }else{
-    if password != passwordConfirmation {
+    if registrationReq.Passwords != registrationReq.PasswordConfirmation {
       r.Ctx.ResponseWriter.WriteHeader(422)
       r.Data["json"] = ErrResponse{422001, "Your Confirmation Password doesnt match"}
       r.ServeJSON()
@@ -90,8 +92,8 @@ func(r *RegistrationController) RegisterTravel(){
     }else{
       // Encrypt Passwords
       encryptPassword := sha1.New()
-      encryptPassword.Write([]byte(password))
-      password = hex.EncodeToString(encryptPassword.Sum(nil))
+      encryptPassword.Write([]byte(registrationReq.Passwords))
+      registrationReq.Passwords = hex.EncodeToString(encryptPassword.Sum(nil))
 
       registration_uid := uuid.NewV4().String()
 
@@ -110,27 +112,21 @@ func(r *RegistrationController) RegisterTravel(){
       	KemenangUmrohPath : registrationReq.KemenangUmrohPath,
       	NoKemenangHaji    : registrationReq.KemenagHajiNo,
       	KemenagHajiPath   : registrationReq.KemenagHajiPath,
-      	Status            : globalConstantsSTATUS_PENDING,
-      	Password          : registrationReq.Password,
+      	Status            : util.STATUS_PENDING,
+      	Password          : registrationReq.Passwords,
     		RegisterNumber		: registration_uid,
       	RoleId            : 3,
       }
-
-      if _, err := models.AddTravelagent(&travelagent); err != nil {
-    		r.Data["json"] = ErrResponse{403, err.Error()}
-    		r.ServeJSON()
-    		return
-    	}else{
-
         //create token
-        et := utils.EasyToken{
-          RegistrationId : registration_uid,
+        et := util.EasyToken{
+          Username : registrationReq.Email,
           Expires:  time.Now().Unix() + 3600,
         }
         token, err := et.GetToken()
         if token == "" || err != nil {
           r.Data["json"] = ErrResponse{-0, err.Error()}
         } else {
+
           link := "http://localhost:8080/v1/verify/" + token
 
           mail := utils.NewEMail(email_config)
@@ -144,11 +140,17 @@ func(r *RegistrationController) RegisterTravel(){
            r.Data["json"] = ErrResponse{403, err.Error()}
            r.ServeJSON()
            return
+           }else{
+             if _, err := models.AddTravelagent(&travelagent); err != nil {
+           		r.Data["json"] = ErrResponse{403, err.Error()}
+           		r.ServeJSON()
+           		return
+           	}
            }
-           r.Data["json"] = Response{200, "success.", response.RegistrationResponse{registrationReq.Email, registrationReq.TravelName, token}}
+           r.Data["json"] = Response{200, "success.", response.RegisterResponse{registrationReq.Email, registrationReq.TravelName, token}}
         }
       	r.ServeJSON()
       }
-    }
+    
   }
 }

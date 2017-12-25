@@ -6,7 +6,7 @@ import (
   "github.com/Arwanial/MyJannah-API/response"
   "github.com/astaxie/beego/validation"
   "github.com/astaxie/beego"
-  "github.com/Arwanial/MyJannah-API/utils"
+  "github.com/Arwanial/MyJannah-API/util"
   "time"
   "encoding/json"
 )
@@ -71,7 +71,7 @@ func(l *LoginController) Login(){
                   return
                 } else{
                   //Create Token
-                    et := utils.EasyToken{
+                    et := util.EasyToken{
                     Username: loginReq.Username,
                     Expires:  time.Now().Unix() + 3600,
                   }
