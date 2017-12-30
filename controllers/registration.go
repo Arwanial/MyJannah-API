@@ -46,10 +46,8 @@ func(r *RegistrationController) RegisterTravel(){
 
   var registrationReq request.RegisterRequest
 
-  beego.Debug("test ")
-
   if err := json.Unmarshal(r.Ctx.Input.RequestBody, &registrationReq); err != nil {
-     r.Ctx.ResponseWriter.WriteHeader(410)
+     r.Ctx.ResponseWriter.WriteHeader(403)
       r.Data["json"] = ErrResponse{410000, "Invalid Request"}
       r.ServeJSON()
       return
@@ -57,24 +55,22 @@ func(r *RegistrationController) RegisterTravel(){
 
   valid := validation.Validation{}
 
-  valid.Email(registrationReq.Email, "email").Message("insert valid email, please")
-  valid.Required(registrationReq.Email, "email").Message("email must be insert")
+  valid.Required(registrationReq.Username, "username").Message("username must be insert")
 	valid.Required(registrationReq.Passwords, "password").Message("password must be insert")
-	valid.Required(registrationReq.TravelName, "travelName").Message("Travel Name must be insert")
-  valid.MinSize(registrationReq.TravelName, 2, "travelName").Message("Minimum Travel Name is 2 character")
-	valid.Tel(registrationReq.Phone, "phone").Message("Insert valid phone, please")
-  valid.Required(registrationReq.Phone, "phone").Message("password must be insert")
-	valid.Tel(registrationReq.Mobile, "mobile").Message("Insert valid mobile, please")
-  valid.Required(registrationReq.Mobile, "mobile").Message("mobile must be insert")
-  valid.Tel(registrationReq.Fax, "fax").Message("Insert valid fax, please")
-  valid.MinSize(registrationReq.OfficeAddress, 10, "officeAddress").Message("Minimum Character of Address is 10")
-  valid.Required(registrationReq.OfficeAddress, "officeAddress").Message("Office Adddress must be insert")
-  valid.Required(registrationReq.OfficeCity, "city").Message("City must be insert")
-  valid.Required(registrationReq.OfficeProvince, "province").Message("Province must be insert")
-  valid.Required(registrationReq.KemenagHajiNo, "kemenagHajiNo").Message("Kemenang Haji must be insert")
-  valid.Required(registrationReq.KemenagUmrohNo, "kemenangUmrohNo").Message("Kemenang Umroh must be insert")
-  valid.Length(registrationReq.Passwords, 8, "password").Message("Password Must be 8 character")
-  valid.Required(registrationReq.PasswordConfirmation, "confirmationPassword").Message("Confirmation Password cant be empty")
+  valid.MinSize(registrationReq.Passwords, 8, "password").Message("Password Must be 8 character")
+
+  if registrationReq.Email != "" {
+    valid.Required(registrationReq.Email, "email").Message("email must be insert")
+    valid.Email(registrationReq.Email, "email").Message("invalid email format")
+  }
+
+  if registrationReq.Mobile != "" {
+    valid.Required(registrationReq.Mobile, "mobile").Message("mobile must be insert")
+    valid.Mobile(registrationReq.Mobile, "mobile").Message("invalid mobile format")
+  }
+
+
+
   //
   if valid.HasErrors() {
       for _, err := range valid.Errors {
@@ -84,12 +80,12 @@ func(r *RegistrationController) RegisterTravel(){
   			return
   		}
   }else{
-    if registrationReq.Passwords != registrationReq.PasswordConfirmation {
-      r.Ctx.ResponseWriter.WriteHeader(422)
-      r.Data["json"] = ErrResponse{422001, "Your Confirmation Password doesnt match"}
-      r.ServeJSON()
-      return
-    }else{
+    // if registrationReq.Passwords != registrationReq.PasswordConfirmation {
+    //   r.Ctx.ResponseWriter.WriteHeader(403)
+    //   r.Data["json"] = ErrResponse{422001, "Your Confirmation Password doesnt match"}
+    //   r.ServeJSON()
+    //   return
+    // }else{
       // Encrypt Passwords
       encryptPassword := sha1.New()
       encryptPassword.Write([]byte(registrationReq.Passwords))
@@ -100,18 +96,8 @@ func(r *RegistrationController) RegisterTravel(){
       //setter
       travelagent := models.Travelagent{
         Email             : registrationReq.Email,
-      	NamaTravel        : registrationReq.TravelName,
-      	Phone             : registrationReq.Phone,
-      	Fax               : registrationReq.Fax,
-      	Mobile            : registrationReq.Mobile,
-      	Website           : registrationReq.Website,
-      	AlamatKantor      : registrationReq.OfficeAddress,
-      	KotaKantor        : registrationReq.OfficeCity,
-      	Provinsi          : registrationReq.OfficeProvince,
-      	NoKemenagUmroh    : registrationReq.KemenagUmrohNo,
-      	KemenangUmrohPath : registrationReq.KemenangUmrohPath,
-      	NoKemenangHaji    : registrationReq.KemenagHajiNo,
-      	KemenagHajiPath   : registrationReq.KemenagHajiPath,
+        Username          : registrationReq.Username,
+        Mobile            : registrationReq.Mobile,
       	Status            : util.STATUS_PENDING,
       	Password          : registrationReq.Passwords,
     		RegisterNumber		: registration_uid,
@@ -127,14 +113,12 @@ func(r *RegistrationController) RegisterTravel(){
           r.Data["json"] = ErrResponse{-0, err.Error()}
         } else {
 
-          link := "http://localhost:8080/v1/verify/" + token
-
+          // link := "http://localhost:8080/v1/verify/" + token
           mail := utils.NewEMail(email_config)
           mail.To = []string{registrationReq.Email}
           mail.From = "ceniebettygreditasari@gmail.com"
-          mail.Subject = "Beego-Ureg - Account Activation"
-          mail.HTML = "To verify your account, please click on the following link.<br><br><a href=\""+link+
-          "\">"+link+"</a><br><br>Best Regards,<br>Awesome's team"
+          mail.Subject = "My Jannah  -  Travel Agent Account Activation"
+          mail.HTML = "Your Account Has Been Registered. Admin will be verify at office hours.<br><br>Best Regards,<br>Awesome's team"
 
            if err := mail.Send(); err != nil {
            r.Data["json"] = ErrResponse{403, err.Error()}
@@ -147,10 +131,10 @@ func(r *RegistrationController) RegisterTravel(){
            		return
            	}
            }
-           r.Data["json"] = Response{200, "success.", response.RegisterResponse{registrationReq.Email, registrationReq.TravelName, token}}
+           r.Data["json"] = Response{200, "success.", response.RegisterResponse{registrationReq.Username, token}}
         }
       	r.ServeJSON()
-      }
-    
+      // }
+
   }
 }

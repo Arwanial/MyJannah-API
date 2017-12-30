@@ -31,6 +31,7 @@ type Travelagent struct {
 	Password          string    `orm:"column(password);size(50)"`
 	RegisterNumber		string    `orm:"column(registration_number)"`
 	RoleId            int64     `orm:"column(role_id)"`
+	Username					string		`orm:"column(username)"`
 }
 
 

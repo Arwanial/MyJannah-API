@@ -14,43 +14,6 @@ import (
 )
 
 func init() {
-	ns := beego.NewNamespace("/v1",
-
-		beego.NSNamespace("/menu",
-			beego.NSInclude(
-				&controllers.MenuController{},
-			),
-		),
-
-		beego.NSNamespace("/role",
-			beego.NSInclude(
-				&controllers.RoleController{},
-			),
-		),
-
-		beego.NSNamespace("/travelagent",
-			beego.NSInclude(
-				&controllers.TravelagentController{},
-			),
-		),
-
-		beego.NSNamespace("/registertravelagent",
-			beego.NSInclude(
-				&controllers.RegistrationController{},
-			),
-		),
-
-		beego.NSNamespace("/login",
-			beego.NSInclude(
-				&controllers.LoginController{},
-			),
-		),
-
-		beego.NSNamespace("/register",
-			beego.NSInclude(
-				&controllers.RegistrationController{},
-			),
-		),
-	)
-	beego.AddNamespace(ns)
+beego.Router("/v1/travelagent/register", &controllers.RegistrationController{}, "post:RegisterTravel")
+beego.Router("/v1/travelagent/login", &controllers.LoginController{}, "post:Login")
 }

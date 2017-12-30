@@ -131,7 +131,7 @@ func init() {
 		beego.ControllerComments{
 			Method: "Login",
 			Router: `/`,
-			AllowHTTPMethods: []string{"post"},
+			AllowHTTPMethods: []string{"get"},
 			MethodParams: param.Make(),
 			Params: nil})
 
@@ -259,7 +259,7 @@ func init() {
 		beego.ControllerComments{
 			Method: "RegisterTravel",
 			Router: `/`,
-			AllowHTTPMethods: []string{"post"},
+			AllowHTTPMethods: []string{"get"},
 			MethodParams: param.Make(),
 			Params: nil})
 

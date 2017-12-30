@@ -127,6 +127,7 @@ paths:
           description: '{string} delete success!'
         "403":
           description: id is empty
+  /register/: {}
   /registertravelagent/: {}
   /role/:
     get:
@@ -609,7 +610,7 @@ definitions:
         type: string
       Provinsi:
         type: string
-      RegistrationNumber:
+      RegisterNumber:
         type: string
       RoleId:
         type: integer
@@ -634,3 +635,6 @@ tags:
 - name: login
   description: |
     LoginController operations for Login
+- name: register
+  description: |
+    RegistrationController operations for Registration
