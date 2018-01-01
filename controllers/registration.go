@@ -143,6 +143,7 @@ func(r *RegistrationController) RegisterTravel(){
           ** By Email Notification
          */
 
+
           if(registrationReq.Email != ""){
           // link := "http://localhost:8080/v1/verify/" + token
             mail := utils.NewEMail(email_config)

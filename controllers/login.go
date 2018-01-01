@@ -85,8 +85,6 @@ func(l *LoginController) Login(){
                 l.Data["json"] = ErrResponse{-0, err.Error()}
               } else{
 
-            beego.Debug("travel name ", w.NamaTravel.Valid)
-
              //Check Status Account
                 if w.Status != "ACTIVE" {
 

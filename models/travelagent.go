@@ -12,7 +12,7 @@ import (
 	 "database/sql"
 )
 
-type Travelagent struct {
+type Travelagent struct { 
 	Id                int       `orm:"column(id);auto"`
 	Email             sql.NullString    `orm:"unique;column(email);size(100);null"`
 	NamaTravel        sql.NullString    `orm:"unique;column(nama_travel);size(200)"`
