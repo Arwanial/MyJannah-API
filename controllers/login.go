@@ -64,7 +64,6 @@ func(l *LoginController) Login(){
             }
        }else{
            //Check Available Account
-           beego.Debug("pass ", loginReq.Password)
             w, err := models.CheckUserByEmailAndPassword(loginReq.Username, loginReq.Password);
             if err != nil {
               l.Ctx.ResponseWriter.WriteHeader(403)

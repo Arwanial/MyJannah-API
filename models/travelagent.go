@@ -8,11 +8,11 @@ import (
 	"time"
 
 	"github.com/astaxie/beego/orm"
-	"github.com/astaxie/beego"
+	// "github.com/astaxie/beego"
 	 "database/sql"
 )
 
-type Travelagent struct { 
+type Travelagent struct {
 	Id                int       `orm:"column(id);auto"`
 	Email             sql.NullString    `orm:"unique;column(email);size(100);null"`
 	NamaTravel        sql.NullString    `orm:"unique;column(nama_travel);size(200)"`
@@ -177,11 +177,16 @@ func CheckUserByEmailAndPassword (username string, password string) (v *Travelag
 	o := orm.NewOrm()
 	o.Using("default")
 
-	beego.Debug ("password ", password)
-
 	// var count int
 	err = o.Raw("select * from travelagent where username = ? and password= ?", username, password).QueryRow(&v)
-	beego.Debug ("username ", username)
-	beego.Debug ("password ", password)
   return
+}
+
+//Check Account Based On Email Or phone
+func CheckAccountByEmailOrPhone (account string) (count int, err error) {
+	o := orm.NewOrm()
+	o.Using("default")
+
+	err = o.Raw("Select count(*) From travelagent where email=? or mobile=?", account, account).QueryRow(&count)
+	return
 }

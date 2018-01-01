@@ -16,4 +16,5 @@ import (
 func init() {
 beego.Router("/v1/travelagent/register", &controllers.RegistrationController{}, "post:RegisterTravel")
 beego.Router("/v1/travelagent/login", &controllers.LoginController{}, "post:Login")
+beego.Router("/v1/travelagent/resendregister", &controllers.ResendRegisterNotifController{}, "post:ResendNotifReg")
 }
