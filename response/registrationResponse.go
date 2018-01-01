@@ -1,6 +1,6 @@
 package response
 
 type RegisterResponse struct {
-  Email                 string        `json:"username"`
+  Username                string        `json:"username"`
   Token                 string        `json:"token"`
 }

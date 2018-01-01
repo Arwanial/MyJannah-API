@@ -9,22 +9,23 @@ import (
 
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego"
+	 "database/sql"
 )
 
 type Travelagent struct {
 	Id                int       `orm:"column(id);auto"`
-	Email             string    `orm:"unique;column(email);size(100)"`
-	NamaTravel        string    `orm:"unique;column(nama_travel);size(200)"`
+	Email             sql.NullString    `orm:"unique;column(email);size(100);null"`
+	NamaTravel        sql.NullString    `orm:"unique;column(nama_travel);size(200)"`
 	Phone             string    `orm:"column(phone);size(30)"`
 	Fax               string    `orm:"column(fax);size(30)"`
-	Mobile            string    `orm:"column(mobile);size(30)"`
+	Mobile            sql.NullString    `orm:"column(mobile);size(30);null"`
 	Website           string    `orm:"column(website);size(150)"`
 	AlamatKantor      string    `orm:"column(alamat_kantor);size(255)"`
 	KotaKantor        string    `orm:"column(kota_kantor);size(100)"`
 	Provinsi          string    `orm:"column(provinsi);size(100)"`
-	NoKemenagUmroh    string    `orm:"unique;column(no_kemenag_umroh);size(20)"`
-	KemenangUmrohPath string    `orm:"column(kemenang_umroh_path);size(200)"`
-	NoKemenangHaji    string    `orm:"unique;column(no_kemenang_haji);size(20)"`
+	NoKemenagUmroh    sql.NullString    `orm:"column(no_kemenag_umroh);size(20)"`
+	KemenangUmrohPath string    `orm:"column(kemenag_umroh_path);size(200)"`
+	NoKemenangHaji    sql.NullString    `orm:"column(no_kemenag_haji);size(20)"`
 	KemenagHajiPath   string    `orm:"column(kemenag_haji_path);size(200)"`
 	JoinDate          time.Time `orm:"auto_now_add;column(join_date);type(datetime)"`
 	Status            string    `orm:"column(status);size(100)"`
@@ -172,30 +173,15 @@ func DeleteTravelagent(id int) (err error) {
 
 // GetTravelagentById retrieves Travelagent by Id. Returns error if
 // Id doesn't exist
-func CheckUserByEmailAndPassword (email string, password string) (v *Travelagent, err error) {
+func CheckUserByEmailAndPassword (username string, password string) (v *Travelagent, err error) {
 	o := orm.NewOrm()
 	o.Using("default")
 
+	beego.Debug ("password ", password)
+
 	// var count int
-	err = o.Raw("select * from travelagent where email = ? and password= ?", email, password).QueryRow(&v)
-	beego.Debug ("HASIL ", err)
+	err = o.Raw("select * from travelagent where username = ? and password= ?", username, password).QueryRow(&v)
+	beego.Debug ("username ", username)
+	beego.Debug ("password ", password)
   return
 }
-
-
-// o := orm.NewOrm()
-// v = &Travelagent{Email: email}
-// if err = o.Read(v); err == nil {
-// 	beego.Debug("test ", v)
-// 	return v, nil
-// }
-// return nil, err
-
-// func GetTravelagentById(id int) (v *Travelagent, err error) {
-// 	o := orm.NewOrm()
-// 	v = &Travelagent{Id: id}
-// 	if err = o.Read(v); err == nil {
-// 		return v, nil
-// 	}
-// 	return nil, err
-// }

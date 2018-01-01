@@ -64,6 +64,7 @@ func(l *LoginController) Login(){
             }
        }else{
            //Check Available Account
+           beego.Debug("pass ", loginReq.Password)
             w, err := models.CheckUserByEmailAndPassword(loginReq.Username, loginReq.Password);
             if err != nil {
               l.Ctx.ResponseWriter.WriteHeader(403)
@@ -84,19 +85,21 @@ func(l *LoginController) Login(){
                 l.Data["json"] = ErrResponse{-0, err.Error()}
               } else{
 
-              //Check Status Account
+            beego.Debug("travel name ", w.NamaTravel.Valid)
+
+             //Check Status Account
                 if w.Status != "ACTIVE" {
-                  beego.Debug("travel name ", w.NamaTravel)
-                  if w.NamaTravel == "" && w.Phone == "" && w.Fax == "" && w.Mobile == "" && w.AlamatKantor == "" && w.KotaKantor == "" && w.Provinsi == "" && w.NoKemenagUmroh == "" && w.KemenangUmrohPath == "" && w.NoKemenangHaji == "" && w.KemenagHajiPath == "" {
+
+                if  w.NamaTravel.Valid == false && w.Phone == "" && w.Fax == "" && w.Mobile.Valid == false && w.AlamatKantor == "" && w.KotaKantor == "" && w.Provinsi == "" && w.NoKemenagUmroh.Valid == false && w.KemenangUmrohPath == "" && w.NoKemenangHaji.Valid == false && w.KemenagHajiPath == "" {
                      l.Data["json"] = Response{200, "success.", response.LoginResponse{"INACTIVE", "INCOMPLETE", token}}
-                  }else{
+                } else {
                     l.Data["json"] = Response{200, "success.", response.LoginResponse{"INACTIVE", "COMPLETE", "null"}}
-                  }
+                }
                   l.ServeJSON()
-                }else if w.Status == "ACTIVE" {
-                  if w.NamaTravel == "" && w.Phone == "" && w.Fax == "" && w.Mobile == "" && w.AlamatKantor == "" && w.KotaKantor == "" && w.Provinsi == "" && w.NoKemenagUmroh == "" && w.KemenangUmrohPath == "" && w.NoKemenangHaji == "" && w.KemenagHajiPath == "" {
-                     l.Data["json"] = Response{200, "success.", response.LoginResponse{"ACTIVE", "INCOMPLETE", token}}
-                  }else{
+                } else if w.Status == "ACTIVE" {
+                if  w.NamaTravel.Valid == false && w.Phone == "" && w.Fax == "" && w.Mobile.Valid == false && w.AlamatKantor == "" && w.KotaKantor == "" && w.Provinsi == "" && w.NoKemenagUmroh.Valid == false && w.KemenangUmrohPath == "" && w.NoKemenangHaji.Valid == false && w.KemenagHajiPath == "" {
+                    l.Data["json"] = Response{200, "success.", response.LoginResponse{"ACTIVE", "INCOMPLETE", token}}
+                 } else {
                     l.Data["json"] = Response{200, "success.", response.LoginResponse{"ACTIVE", "COMPLETE", token}}
                   }
                   l.ServeJSON()
