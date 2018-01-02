@@ -24,9 +24,9 @@ type Travelagent struct {
 	KotaKantor        string    `orm:"column(kota_kantor);size(100)"`
 	Provinsi          string    `orm:"column(provinsi);size(100)"`
 	NoKemenagUmroh    sql.NullString    `orm:"column(no_kemenag_umroh);size(20)"`
-	KemenangUmrohPath string    `orm:"column(kemenag_umroh_path);size(200)"`
+	KemenangUmrohPath sql.NullString    `orm:"column(kemenag_umroh_path);size(200)"`
 	NoKemenangHaji    sql.NullString    `orm:"column(no_kemenag_haji);size(20)"`
-	KemenagHajiPath   string    `orm:"column(kemenag_haji_path);size(200)"`
+	KemenagHajiPath   sql.NullString    `orm:"column(kemenag_haji_path);size(200)"`
 	JoinDate          time.Time `orm:"auto_now_add;column(join_date);type(datetime)"`
 	Status            string    `orm:"column(status);size(100)"`
 	Password          string    `orm:"column(password);size(50)"`
